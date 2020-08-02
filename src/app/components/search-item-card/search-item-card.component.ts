@@ -9,7 +9,7 @@ export class SearchItemCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }
