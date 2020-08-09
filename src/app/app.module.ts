@@ -7,6 +7,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchItemCardComponent } from './components/search-item-card/search-item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchResultsComponent,
     SearchItemComponent,
     SearchItemCardComponent,
+    FilterComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],
