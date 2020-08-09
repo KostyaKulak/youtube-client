@@ -37,6 +37,14 @@ header {
 .settings {
   margin-left: 20px;
   border: hidden;
+  background-color: #28a9ff;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.settings:hover {
+  border: hidden;
 }
 
 .user {
