@@ -8,6 +8,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchItemCardComponent } from './components/search-item-card/search-item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterComponent } from './components/filter/filter.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FilterComponent } from './components/filter/filter.component';
     SearchItemCardComponent,
     FilterComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule],
+  imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
