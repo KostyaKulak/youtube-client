@@ -12,6 +12,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
-    }
-]
+    },
+    "co"
+  ],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
 }

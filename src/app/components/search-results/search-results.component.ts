@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { SearchResponse } from '../../models/search-response.model';
+import * as data  from './response.json'
 
 @Component({
   selector: 'app-search-results',
@@ -7,8 +8,11 @@ import { SearchResponse } from '../../models/search-response.model';
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent implements OnInit {
-  public searchResponse: SearchResponse;
+  public searchResponse: SearchResponse = <SearchResponse><unknown>data;
+
   constructor() {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    console.log(this.searchResponse.items);
+  }
 }

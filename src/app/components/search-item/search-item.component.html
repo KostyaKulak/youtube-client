@@ -1,1 +1,9 @@
-<p>search-item works!</p>
+<p>Hello</p>
+<div class="item">
+  <img [src]="item.snippet.thumbnails.default.url" alt="{{item.snippet.title}}">
+  <div> {{item.statistics.viewCount}}</div>
+  <div> {{item.statistics.likeCount}}</div>
+  <div> {{item.statistics.dislikeCount}}</div>
+  <div> {{item.statistics.commentCount}}</div>
+  <div> {{item.snippet.title}}</div>
+</div>
