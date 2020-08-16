@@ -1,0 +1,43 @@
+.statistics, .statistics_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.statistics_item > * {
+  margin: 1px;
+}
+
+.statistics > * {
+  margin: 5px;
+}
+
+.item {
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 15px;
+  border-bottom-color: #28a9ff;
+  border-bottom-width: 5px;
+  max-width: 350px;
+  max-height: 400px;
+}
+
+.item > img {
+  max-width: 320px;
+}
+
+.more_button {
+  background-color: #28a9ff;
+  max-width: 50px;
+  padding: 5px 35px 5px 35px;
+  color: white;
+  border-radius: 5px;
+  margin: auto auto 10px;
+}
+.title {
+  margin-top: 15px;
+  margin-bottom: 75px;
+}

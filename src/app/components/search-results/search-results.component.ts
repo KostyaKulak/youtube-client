@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { SearchResponse } from '../../models/search-response.model';
-import * as data  from './response.json'
+import {Component, OnInit} from '@angular/core';
+import {SearchResponse} from '../../models/search-response.model';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search-results',
@@ -8,11 +8,14 @@ import * as data  from './response.json'
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent implements OnInit {
-  public searchResponse: SearchResponse = <SearchResponse><unknown>data;
+  readonly url = "http://localhost:8090/youtube/response";
+  public searchResponse: SearchResponse;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
 
   public ngOnInit(): void {
-    console.log(this.searchResponse.items);
+    this.http.get<SearchResponse>(this.url)
+      .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
   }
 }

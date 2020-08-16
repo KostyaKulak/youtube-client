@@ -9,6 +9,7 @@ import { SearchItemCardComponent } from './components/search-item-card/search-it
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterComponent } from './components/filter/filter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SearchItemCardComponent,
     FilterComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule],
+  imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule, HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

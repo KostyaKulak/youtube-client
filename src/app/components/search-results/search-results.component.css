@@ -1,4 +1,10 @@
-.result {
+.results {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto;
+}
+
+.result {
+  flex: 1 0 25%;
 }
