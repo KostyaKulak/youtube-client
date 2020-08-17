@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
+  public hidden: boolean;
 
-  constructor() { }
+  constructor(private data: DataService) {
+  }
+
+  public ngOnInit(): void {
+    this.data.currentHiddenState.subscribe(hidden => this.hidden = hidden);
+  }
 }
