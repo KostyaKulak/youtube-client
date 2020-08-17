@@ -9,9 +9,9 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent implements OnInit {
-  readonly url = "http://localhost:8090/youtube/response";
+  private readonly url: string = 'http://localhost:8090/youtube/response';
   public searchResponse: SearchResponse;
-  public hidden;
+  public hidden: boolean;
 
   constructor(private http: HttpClient, private data: DataService) {
   }

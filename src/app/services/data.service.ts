@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class DataService {
-  private resultSource = new BehaviorSubject<boolean>(true);
-  currentHiddenState = this.resultSource.asObservable();
+  private resultSource: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public currentHiddenState: Observable<boolean> = this.resultSource.asObservable();
 
   constructor() {
   }
 
-  displayResults() {
+  public displayResults(): void {
     this.resultSource.next(false);
   }
 }

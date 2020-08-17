@@ -21,7 +21,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     SearchItemCardComponent,
     FilterComponent,
   ],
-              imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
