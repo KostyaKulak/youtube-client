@@ -23,6 +23,7 @@
   border-bottom-width: 5px;
   max-width: 350px;
   max-height: 400px;
+  flex: 1 0 25%;
 }
 
 .item > img {
@@ -37,7 +38,11 @@
   border-radius: 5px;
   margin: auto auto 10px;
 }
+
 .title {
-  margin-top: 15px;
-  margin-bottom: 75px;
+  margin: 15px auto 75px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 300px;
 }
