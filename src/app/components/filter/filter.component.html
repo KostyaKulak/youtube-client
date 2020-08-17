@@ -1,11 +1,13 @@
 <div class="filters" [style]="hidden? 'display: none;' : ''">
   <div>Sorting by:</div>
-  <div class="filter" (click)="sortResultsDate()">date</div>
-  <div class="filter" (click)="sortResultsCountOfViews()">count of views</div>
+  <div class="filter" (click)="sortResultsByDate()">date</div>
+  <div class="filter" (click)="sortResultsByCountOfViews()">count of views</div>
   <div>
-    <div class="filter">by word or sentence</div>
-    <label>
-      <input id="by_word_or_sentence" type="text">
-    </label>
+    <form [formGroup]="filterForm" (ngSubmit)="filterResultsByWord()">
+      <input type="submit" class="filter" value="by word or sentence">
+      <label>
+        <input id="by_word_or_sentence" type="text" formControlName="word">
+      </label>
+    </form>
   </div>
 </div>

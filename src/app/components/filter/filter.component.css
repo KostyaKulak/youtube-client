@@ -18,4 +18,5 @@
   color: -webkit-link;
   cursor: pointer;
   text-decoration: underline;
+  border: hidden;
 }

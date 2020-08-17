@@ -15,8 +15,14 @@ export class SearchResultsComponent implements OnInit {
   private readonly url: string = 'http://localhost:8090/youtube/response';
   public searchResponse: SearchResponse;
   public hidden: boolean;
+  public filtered: boolean = false;
 
   constructor(private http: HttpClient, private data: DataService, private sortConfig: SortConfig) {
+  }
+
+  private fetchYouTubeData(): void {
+    this.http.get<SearchResponse>(this.url)
+      .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
   }
 
   private sortResults(sortType: SortType): void {
@@ -44,15 +50,24 @@ export class SearchResultsComponent implements OnInit {
       return compare;
     });
     if (sortType === SortType.DEFAULT) {
-      this.http.get<SearchResponse>(this.url)
-        .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
+      this.fetchYouTubeData();
     }
   }
 
   public ngOnInit(): void {
-    this.http.get<SearchResponse>(this.url)
-      .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
+    this.fetchYouTubeData();
     this.data.currentResultsHiddenState.subscribe(hidden => this.hidden = hidden);
     this.sortConfig.currentSortType.subscribe(sortType => this.sortResults(sortType));
+    this.data.currentFilterWord.subscribe(word => {
+      if (word.length !== 0) {
+        this.searchResponse.items = this.searchResponse.items
+          .filter(value => value.snippet.title.includes(word));
+        this.filtered = true;
+      }
+      if (this.filtered && word.length === 0) {
+        this.filtered = false;
+        this.fetchYouTubeData();
+      }
+    });
   }
 }

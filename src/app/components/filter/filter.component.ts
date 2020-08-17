@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {SortConfig} from '../../config/sort.config';
 import {SortType} from '../../config/sort.type';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-filter',
@@ -10,19 +11,28 @@ import {SortType} from '../../config/sort.type';
 })
 export class FilterComponent implements OnInit {
   public hidden: boolean;
+  public filterForm: FormGroup;
 
-  constructor(private data: DataService, private sortConfig: SortConfig) {
+  constructor(private fb: FormBuilder, private data: DataService, private sortConfig: SortConfig) {
   }
 
   public ngOnInit(): void {
     this.data.currentFilterHiddenState.subscribe(hidden => this.hidden = hidden);
+    this.createForm();
+  }
+
+  public createForm(): void {
+    this.filterForm = this.fb.group(
+      {word: ['', [Validators.required]]},
+      {updateOn: 'blur'}
+    );
   }
 
   public sortResults(sortType: SortType): void {
     this.sortConfig.changeSortType(sortType);
   }
 
-  public sortResultsDate(): void {
+  public sortResultsByDate(): void {
     let currentSortType: SortType;
     this.sortConfig.currentSortType.subscribe(sortType => currentSortType = sortType);
     switch (currentSortType) {
@@ -38,7 +48,7 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  public sortResultsCountOfViews(): void {
+  public sortResultsByCountOfViews(): void {
     let currentSortType: SortType;
     this.sortConfig.currentSortType.subscribe(sortType => currentSortType = sortType);
     switch (currentSortType) {
@@ -52,5 +62,10 @@ export class FilterComponent implements OnInit {
         this.sortResults(SortType.COUNT_OF_VIEWS_ASC);
         break;
     }
+  }
+
+  public filterResultsByWord(): void {
+    let word: string = this.filterForm.get('word').value;
+    this.data.changeFilterValue(word);
   }
 }
