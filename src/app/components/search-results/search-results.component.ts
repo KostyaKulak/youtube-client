@@ -19,6 +19,6 @@ export class SearchResultsComponent implements OnInit {
   public ngOnInit(): void {
     this.http.get<SearchResponse>(this.url)
       .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
-    this.data.currentHiddenState.subscribe(hidden => this.hidden = hidden);
+    this.data.currentResultsHiddenState.subscribe(hidden => this.hidden = hidden);
   }
 }

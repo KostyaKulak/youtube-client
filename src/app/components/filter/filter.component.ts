@@ -13,6 +13,6 @@ export class FilterComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.data.currentHiddenState.subscribe(hidden => this.hidden = hidden);
+    this.data.currentFilterHiddenState.subscribe(hidden => this.hidden = hidden);
   }
 }

@@ -24,11 +24,19 @@ export class HeaderComponent implements OnInit {
     this.searchForm = this.fb.group(
       {search: ['', [Validators.required]]},
       {updateOn: 'blur'}
-      );
+    );
   }
 
   public onSubmit(): void {
     this.data.displayResults();
+  }
+
+  public showFilter(): void {
+    let resultsHidden: boolean;
+    this.data.currentResultsHiddenState.subscribe(hidden => resultsHidden = hidden);
+    if (!resultsHidden) {
+      this.data.displayFilter();
+    }
   }
 
 }
