@@ -19,8 +19,6 @@
   border-radius: 5px;
   padding: 15px;
   margin: 15px;
-  border-bottom-color: #28a9ff;
-  border-bottom-width: 5px;
   max-width: 350px;
   max-height: 400px;
   flex: 1 0 25%;
@@ -45,4 +43,25 @@
   overflow: hidden;
   white-space: nowrap;
   max-width: 300px;
+}
+
+.public_date {
+  height: 5px;
+  margin: 0 -15px -15px;
+}
+
+.public_date_seven_days {
+  background-color: blue;
+}
+
+.public_date_month {
+  background-color: green;
+}
+
+.public_date_six_month {
+  background-color: red;
+}
+
+.public_date_default {
+  background-color: #28a9ff;
 }
