@@ -2,10 +2,12 @@
   <a href="/">
     <img id="logo" src="/assets/img/logo.png" alt="logo">
   </a>
-  <label>
-    <input type="text" id="search_input" placeholder="What are you want to find out?">
-  </label>
-  <input type="submit" class="search" value="search">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <label>
+      <input type="text" id="search_input" placeholder="What are you want to find out?" formControlName="search">
+    </label>
+    <input type="submit" class="search" value="search" >
+  </form>
   <button class="settings">
     <fa-icon [icon]="faSlidersH"></fa-icon>
   </button>
