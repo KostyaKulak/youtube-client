@@ -1,9 +1,9 @@
-<div class="filter" [style]="hidden? 'display: none;' : ''">
+<div class="filters" [style]="hidden? 'display: none;' : ''">
   <div>Sorting by:</div>
-  <a href="/">date</a>
-  <a href="/">count of views</a>
+  <div class="filter" (click)="sortResultsDate()">date</div>
+  <div class="filter" (click)="sortResultsCountOfViews()">count of views</div>
   <div>
-    <a href="/">by word or sentence</a>
+    <div class="filter">by word or sentence</div>
     <label>
       <input id="by_word_or_sentence" type="text">
     </label>
