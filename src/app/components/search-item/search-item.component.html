@@ -1,1 +1,24 @@
-<p>search-item works!</p>
+<div class="item">
+  <img [src]="item.snippet.thumbnails.medium.url" alt="{{item.snippet.title}}">
+  <div class="statistics">
+    <div class="statistics_item">
+      <fa-icon [icon]="faEye"></fa-icon>
+      <div> {{item.statistics.viewCount}}</div>
+    </div>
+    <div class="statistics_item">
+      <fa-icon [icon]="faHeart"></fa-icon>
+      <div> {{item.statistics.likeCount}}</div>
+    </div>
+    <div class="statistics_item">
+      <fa-icon [icon]="faHeartBroken"></fa-icon>
+      <div> {{item.statistics.dislikeCount}}</div>
+    </div>
+    <div class="statistics_item">
+      <fa-icon [icon]="faComments"></fa-icon>
+      <div> {{item.statistics.commentCount}}</div>
+    </div>
+  </div>
+  <div class="title"> {{item.snippet.title}}</div>
+  <div class="more_button"><a>more...</a></div>
+  <div class="public_date" [ngClass]="borderClass"></div>
+</div>
