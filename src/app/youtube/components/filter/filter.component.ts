@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../services/data.service';
-import {SortConfig} from '../../config/sort.config';
-import {SortType} from '../../config/sort.type';
+import {DataService} from '../../../core/services/data.service';
+import {SortConfig} from '../../../config/sort.config';
+import {SortType} from '../../../config/sort.type';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
