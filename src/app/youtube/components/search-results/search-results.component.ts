@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
 import {HttpClient} from '@angular/common/http';
-import {DataService} from '../../services/data.service';
-import {SortType} from '../../config/sort.type';
-import {SortConfig} from '../../config/sort.config';
+import {DataService} from '../../../core/services/data.service';
+import {SortType} from '../../../config/sort.type';
+import {SortConfig} from '../../../config/sort.config';
 import {SearchItem} from '../../models/search-item.model';
 
 @Component({

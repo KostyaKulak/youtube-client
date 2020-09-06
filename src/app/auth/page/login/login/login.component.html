@@ -1,0 +1,24 @@
+<mat-spinner *ngIf="loading; else login" color="#2f80ec"></mat-spinner>
+
+<ng-template #login>
+  <div class="login-component">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field class="input-field">
+        <mat-label>login</mat-label>
+        <input class="input" matInput type="text" formControlName="login">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="input-field">
+        <mat-label>password</mat-label>
+        <input class="input" matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <br>
+
+      <button type="submit" class="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+</ng-template>
