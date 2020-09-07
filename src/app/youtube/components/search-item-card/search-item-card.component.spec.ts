@@ -8,9 +8,9 @@ describe('SearchItemCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchItemCardComponent ]
+      declarations: [SearchItemCardComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

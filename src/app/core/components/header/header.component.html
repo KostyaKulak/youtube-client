@@ -1,18 +1,21 @@
 <header>
-  <a href="/">
+  <a href="/list">
     <img id="logo" src="assets/img/logo.png" alt="logo">
   </a>
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <label>
-      <input type="text" id="search_input" placeholder="What are you want to find out?" formControlName="search">
-    </label>
-    <input type="submit" class="search" value="search" >
+    <mat-form-field class="input-field" id="search_input">
+      <input class="input" matInput type="text" placeholder="What are you want to find out?"
+             formControlName="search">
+    </mat-form-field>
+    <button type="submit" class="submit search" [disabled]="searchForm.invalid">search</button>
   </form>
   <button type="button" class="settings" (click)="showFilter()">
     <fa-icon [icon]="faSlidersH"></fa-icon>
   </button>
-  <div class="user">
-    <div class="user-name">Your name</div>
-    <fa-icon [icon]="faUserCircle"></fa-icon>
+  <div class="user" [style]="authUserService.isAuthorized?'':'display: none;'">
+    <mat-label class="user-name">{{userName}}</mat-label>
+    <a href="/logout">
+      <mat-icon matSuffix>perm_identity</mat-icon>
+    </a>
   </div>
 </header>

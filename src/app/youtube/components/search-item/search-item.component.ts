@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SearchItem} from '../../models/search-item.model';
 import {faComments, faEye, faHeart, faHeartBroken, IconDefinition} from '@fortawesome/free-solid-svg-icons';
+import {findDateDiff} from '../../../shared/utils/date.utils';
 
 @Component({
   selector: 'app-search-item',
@@ -18,24 +19,8 @@ export class SearchItemComponent implements OnInit {
   constructor() {
   }
 
-  private dateDiff(): { [key: string]: number } {
-    let publicDate: Date = new Date(this.item.snippet.publishedAt);
-    let diffMs: number = (publicDate.valueOf() - new Date().valueOf());
-    let diffDays: number = Math.floor(diffMs / 86400000);
-    let diffHrs: number = Math.floor((diffMs % 86400000) / 3600000);
-    let diffMins: number = Math.round(((diffMs % 86400000) % 3600000) / 60000);
-    let diffMonth: number = diffDays / 31;
-    return {
-      diffMs: diffMs,
-      diffDays: diffDays,
-      diffHrs: diffHrs,
-      diffMins: diffMins,
-      diffMonth: diffMonth
-    };
-  }
-
   public ngOnInit(): void {
-    let dateDiff: { [p: string]: number } = this.dateDiff();
+    let dateDiff: { [p: string]: number } = findDateDiff(this.item);
     if (dateDiff.diffDays > -7) {
       this.borderClass = 'public_date_seven_days';
     } else {

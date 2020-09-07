@@ -1,4 +1,4 @@
-<div class="item">
+<mat-card class="item">
   <img [src]="item.snippet.thumbnails.medium.url" alt="{{item.snippet.title}}">
   <div class="statistics">
     <div class="statistics_item">
@@ -19,6 +19,6 @@
     </div>
   </div>
   <div class="title"> {{item.snippet.title}}</div>
-  <div class="more_button"><a>more...</a></div>
+  <div class="more_button"><a routerLink="/list/{{item.id}}">more...</a></div>
   <div class="public_date" [ngClass]="borderClass"></div>
-</div>
+</mat-card>

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
-import {HttpClient} from '@angular/common/http';
 import {DataService} from '../../../core/services/data.service';
 import {SortType} from '../../../config/sort.type';
 import {SortConfig} from '../../../config/sort.config';
 import {SearchItem} from '../../models/search-item.model';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-search-results',
@@ -12,16 +12,14 @@ import {SearchItem} from '../../models/search-item.model';
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent implements OnInit {
-  private readonly url: string = 'http://localhost:8090/youtube/response';
   public searchResponse: SearchResponse;
-  public hidden: boolean;
   public filtered: boolean = false;
 
-  constructor(private http: HttpClient, private data: DataService, private sortConfig: SortConfig) {
+  constructor(private http: HttpService, private data: DataService, private sortConfig: SortConfig) {
   }
 
   private fetchYouTubeData(): void {
-    this.http.get<SearchResponse>(this.url)
+    this.http.fetchYouTubeData()
       .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
   }
 
@@ -56,7 +54,6 @@ export class SearchResultsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.fetchYouTubeData();
-    this.data.currentResultsHiddenState.subscribe(hidden => this.hidden = hidden);
     this.sortConfig.currentSortType.subscribe(sortType => this.sortResults(sortType));
     this.data.currentFilterWord.subscribe(word => {
       if (word.length !== 0) {

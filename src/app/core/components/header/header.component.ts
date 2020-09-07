@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {faSlidersH, faUserCircle, IconDefinition} from '@fortawesome/free-solid-svg-icons';
+import {faSlidersH, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DataService} from '../../services/data.service';
+import {AuthUserService} from '../../services/auth-user.service';
+import {UserHolderService} from '../../services/user-holder.service';
+import {of} from 'rxjs';
+import {User} from '../../../shared/models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +13,23 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public faUserCircle: IconDefinition = faUserCircle;
   public faSlidersH: IconDefinition = faSlidersH;
   public searchForm: FormGroup;
+  public userName: string;
 
-  constructor(private fb: FormBuilder, private data: DataService) {
+  constructor(
+    private fb: FormBuilder,
+    public authUserService: AuthUserService,
+    private data: DataService,
+    public userHolderService: UserHolderService
+  ) {
+    of(this.userHolderService)
+      .subscribe((service) => {
+        const user: User = service.loadLastUser();
+        if (user) {
+          this.userName = user.name;
+        }
+      });
   }
 
   public ngOnInit(): void {
@@ -28,15 +44,10 @@ export class HeaderComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.data.displayResults();
   }
 
   public showFilter(): void {
-    let resultsHidden: boolean;
-    this.data.currentResultsHiddenState.subscribe(hidden => resultsHidden = hidden);
-    if (!resultsHidden) {
-      this.data.displayFilter();
-    }
+    this.data.displayFilter();
   }
 
 }

@@ -54,3 +54,7 @@ header {
 .user > * {
   margin: 5px;
 }
+
+a > * {
+  text-decoration: none;
+}

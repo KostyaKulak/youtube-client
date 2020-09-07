@@ -32,9 +32,13 @@
   background-color: #28a9ff;
   max-width: 50px;
   padding: 5px 35px 5px 35px;
-  color: white;
   border-radius: 5px;
   margin: auto auto 10px;
+}
+
+.more_button > a {
+  text-decoration: none;
+  color: white;
 }
 
 .title {
@@ -50,18 +54,3 @@
   margin: 0 -15px -15px;
 }
 
-.public_date_seven_days {
-  background-color: blue;
-}
-
-.public_date_month {
-  background-color: green;
-}
-
-.public_date_six_month {
-  background-color: red;
-}
-
-.public_date_default {
-  background-color: #28a9ff;
-}
