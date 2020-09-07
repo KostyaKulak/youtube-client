@@ -1,18 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LIST_PAGE, LOGIN_PAGE} from './constants/common';
+import {HOME_PAGE, LOGIN_PAGE, LOGOUT_PAGE} from './constants/common';
 import {UnauthGuard} from './shared/guard/unauth.guard';
 import {NotFoundComponent} from './core/pages/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: LOGIN_PAGE, pathMatch: 'full'},
+  {
+    path: LOGOUT_PAGE,
+    loadChildren: () =>
+      import('src/app/auth/auth.module').then((m) => m.AuthModule),
+  },
   {
     path: LOGIN_PAGE,
     loadChildren: () =>
       import('src/app/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: LIST_PAGE,
+    path: HOME_PAGE,
     canActivate: [UnauthGuard],
     canLoad: [UnauthGuard],
     loadChildren: () =>
@@ -22,8 +27,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports:[RouterModule.forRoot(routes)],
-  exports:[RouterModule]
-          })
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
 export class AppRoutingModule {
 }

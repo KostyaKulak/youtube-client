@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../../core/services/data.service';
-import {SortConfig} from '../../../config/sort.config';
-import {SortType} from '../../../config/sort.type';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../core/services/data.service';
+import { SortConfig } from '../../../config/sort.config';
+import { SortType } from '../../../config/sort.type';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-filter',
@@ -23,8 +23,8 @@ export class FilterComponent implements OnInit {
 
   public createForm(): void {
     this.filterForm = this.fb.group(
-      {word: ['', [Validators.required]]},
-      {updateOn: 'blur'}
+      { word: ['', [Validators.required]] },
+      { updateOn: 'blur' }
     );
   }
 

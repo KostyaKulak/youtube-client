@@ -72,7 +72,7 @@
       "trace"
     ],
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params",
       "ignore-properties"
     ],

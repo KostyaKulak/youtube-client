@@ -1,4 +1,4 @@
-<div class="results" [style]="hidden? 'display: none;' : ''">
+<div class="results">
   <div *ngFor="let searchItem of searchResponse? searchResponse.items : []" class="result">
     <app-search-item [item]="searchItem"></app-search-item>
   </div>
