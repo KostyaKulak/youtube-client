@@ -1,0 +1,81 @@
+<mat-spinner *ngIf="loading; else login" color="#2f80ec"></mat-spinner>
+
+<ng-template #login>
+  <div class="login-component">
+    <mat-card class="mat-elevation-z12">
+      <mat-card-title>SignIn/SignUp</mat-card-title>
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+        <mat-tab label="Sign In">
+          <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="submitSignIn()">
+              <mat-form-field class="input-field">
+                <mat-label>login</mat-label>
+                <input class="input" matInput type="text" formControlName="login">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-form-field class="input-field">
+                <mat-label>password</mat-label>
+                <input class="input" matInput type="password" formControlName="password">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-checkbox>Remember Me!</mat-checkbox>
+
+              <br>
+
+              <button type="submit" class="submit" [disabled]="loginForm.invalid">Sign In</button>
+            </form>
+          </mat-card-content>
+        </mat-tab>
+        <mat-tab label="Sign Up">
+          <mat-card-content>
+            <form [formGroup]="registerForm" (ngSubmit)="submitSignUp()">
+              <mat-form-field class="input-field">
+                <mat-label>email</mat-label>
+                <input class="input" matInput type="text" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-form-field class="input-field">
+                <mat-label>login</mat-label>
+                <input class="input" matInput type="text" formControlName="login">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-form-field class="input-field">
+                <mat-label>password</mat-label>
+                <input class="input" matInput type="password" formControlName="password">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-form-field class="input-field">
+                <mat-label>repeat password</mat-label>
+                <input class="input" matInput type="password" formControlName="re_password">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-checkbox>Remember Me!</mat-checkbox>
+
+              <br>
+
+              <button type="submit" class="submit" [disabled]="registerForm.invalid">Sign Up</button>
+            </form>
+          </mat-card-content>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</ng-template>
