@@ -20,7 +20,10 @@ export class SearchResultsComponent implements OnInit {
 
   private fetchYouTubeData(): void {
     this.http.fetchYouTubeData()
-      .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
+      .subscribe((searchResponse: SearchResponse) => {
+        this.searchResponse = searchResponse;
+        this.http.response = this.searchResponse;
+      });
   }
 
   private sortResults(sortType: SortType): void {
