@@ -12,7 +12,7 @@ export class DataService {
   }
 
   public displayFilter(): void {
-    this.filterSource.next(false);
+    this.filterSource.next(!this.filterSource.value);
   }
 
   public changeFilterValue(word: string): void {

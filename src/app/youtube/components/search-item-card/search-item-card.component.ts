@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SearchItem} from '../../models/search-item.model';
 import {faComments, faEye, faHeart, faHeartBroken, IconDefinition} from '@fortawesome/free-solid-svg-icons';
-import {findDateDiff} from '../../../shared/utils/date.utils';
 import {HttpService} from '../../services/http.service';
 import {ActivatedRoute} from '@angular/router';
+import {getBorderClass} from '../../../shared/utils/class.utils';
 
 @Component({
   selector: 'app-search-item-card',
@@ -17,23 +17,23 @@ export class SearchItemCardComponent implements OnInit {
   public faComments: IconDefinition = faComments;
   public item: SearchItem;
   public borderClass: string;
+  public loading: boolean;
 
   constructor(private http: HttpService, private route: ActivatedRoute) {
     this.route.params.subscribe((params) => {
       this.http.fetchYouTubeData()
-        .subscribe((searchResponse) =>
-                     this.item = searchResponse.items.find(item => item.id === params.id));
-                                });
+        .subscribe({
+                     next: (searchResponse) => {
+                       this.loading = true;
+                       this.item = searchResponse.items.find(item => item.id === params.id);
+                       this.borderClass = getBorderClass(this.item);
+                     },
+                     error: null,
+                     complete: () => this.loading = false
+                   });
+    });
   }
 
-  public ngOnInit(): void {
-    let dateDiff: { [p: string]: number } = findDateDiff(this.item);
-    if (dateDiff.diffDays > -7) {
-      this.borderClass = 'public_date_seven_days';
-    } else {
-      this.borderClass = dateDiff.diffMonth > -1 ? 'public_date_month' :
-        (dateDiff.diffMonth < -6 ? 'public_date_six_month' : 'public_date_default');
-    }
-  }
+  public ngOnInit(): void {  }
 
 }
