@@ -11,15 +11,18 @@
   overflow: hidden;
 }
 
-mat-card, mat-spinner {
+mat-card {
   width: 30%;
   min-width: 400px;
   margin: 30px auto 10%;
   border-radius: 8px;
+  background-color: #f1f1f1;
 }
 
-mat-card {
-  background-color: #f1f1f1;
+mat-spinner {
+  width: 20%;
+  margin: 30px auto 10%;
+  border-radius: 8px;
 }
 
 mat-form-field, mat-checkbox {

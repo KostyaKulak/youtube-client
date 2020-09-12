@@ -12,21 +12,22 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   background-color: #f1f1f1;
 }
 
-#search_input {
+header > div {
   margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#search_input {
   border: hidden;
   min-width: 500px;
 }
 
 .settings {
   margin-left: 20px;
-  border: hidden;
-  background-color: #28a9ff;
-  border-radius: 5px;
   width: 25px;
   height: 25px;
 }
@@ -35,14 +36,43 @@ header {
   border: hidden;
 }
 
-.user {
-  display: inherit;
-}
-
 .user > * {
   margin: 5px;
 }
 
-a > * {
+a > *, a {
   text-decoration: none;
+}
+
+#center {
+  display: flex;
+  flex-direction: row;
+  margin-left: 34%;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+}
+
+.logout, .settings {
+  border: hidden;
+  background-color: #28a9ff;
+  border-radius: 5px;
+}
+
+.logout {
+  min-width: 100px;
+  min-height: 25px;
+  text-align: center;
+}
+
+.logout > a {
+  color: white;
+}
+
+#end {
+  justify-content: flex-end;
+  margin-left: 15%;
+  margin-right: 5%;
 }

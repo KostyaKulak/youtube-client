@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public search(query: string): void {
-    if (query.length > 3) {
+    if (query.trim().length > 3) {
       const result: Observable<SearchResponse> | void = this.youtubeService.searchYouTubeData(query);
       if (result instanceof Observable) {
         result.subscribe((response: SearchResponse) => {
@@ -61,7 +61,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public showFilter(): void {
-    this.data.displayFilter();
+    if (this.youtubeService.response) {
+      this.data.displayFilter();
+    }
   }
 
 }

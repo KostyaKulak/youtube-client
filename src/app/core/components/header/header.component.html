@@ -1,20 +1,25 @@
 <header>
-  <a href="/list">
-    <img id="logo" src="assets/img/logo.png" alt="logo">
-  </a>
-  <form [formGroup]="searchForm" (ngSubmit)="search(searchField.value)">
-    <mat-form-field class="input-field" id="search_input">
-      <input  #searchField  class="input" matInput type="text" placeholder="What are you want to find out?"
-             formControlName="search" (keyup)="search(searchField.value)">
-    </mat-form-field>
-  </form>
-  <button type="button" class="settings" (click)="showFilter()">
-    <fa-icon [icon]="faSlidersH"></fa-icon>
-  </button>
-  <div class="user" [style]="authUserService.isAuthorized?'':'display: none;'">
-    <mat-label class="user-name">{{userName}}</mat-label>
-    <a href="/logout">
-      <mat-icon matSuffix>perm_identity</mat-icon>
+  <div id="center">
+    <a href="/list">
+      <img id="logo" src="assets/img/logo.png" alt="logo">
     </a>
+    <form [formGroup]="searchForm" (ngSubmit)="search(searchField.value)">
+      <mat-form-field class="input-field" id="search_input">
+        <input #searchField class="input" matInput type="text" placeholder="What are you want to find out?"
+               formControlName="search" (keyup)="search(searchField.value)">
+      </mat-form-field>
+    </form>
+    <button type="button" class="settings" (click)="showFilter()">
+      <fa-icon [icon]="faSlidersH"></fa-icon>
+    </button>
+  </div>
+  <div id="end">
+    <div class="user" [style]="authUserService.isAuthorized?'':'display: none;'">
+      <mat-label class="user-name">{{userName}}</mat-label>
+      <mat-icon matSuffix>perm_identity</mat-icon>
+      <div class="logout">
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
   </div>
 </header>
