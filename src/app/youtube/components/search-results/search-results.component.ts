@@ -5,6 +5,8 @@ import {SortType} from '../../../config/sort.type';
 import {SortConfig} from '../../../config/sort.config';
 import {SearchItem} from '../../models/search-item.model';
 import {YoutubeService} from '../../services/youtube.service';
+import {Observable} from 'rxjs';
+import {Card} from '../../../shared/models/card.model';
 
 @Component({
   selector: 'app-search-results',
@@ -13,6 +15,7 @@ import {YoutubeService} from '../../services/youtube.service';
 })
 export class SearchResultsComponent implements OnInit {
   public searchResponse: SearchResponse;
+  public cards: Observable<Card[]>;
   public filtered: boolean = false;
 
   constructor(
