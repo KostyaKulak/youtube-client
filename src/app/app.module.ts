@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent],
