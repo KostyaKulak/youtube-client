@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public registerForm: FormGroup;
   public loading: boolean;
-  public previousUrl: string;
 
   constructor(
     private router: Router,

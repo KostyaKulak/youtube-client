@@ -16,16 +16,15 @@ export const initialState: State = {
   selected: null
 };
 
-export function reducer(state: State = initialState, action: CardAction): State {
+/* tslint:disable*/
+export function reducer(state: State = initialState, action: CardAction) {
   switch (action.type) {
     case ActionTypes.ADD_CARD: {
       const newCard: CustomCard = action.payload as CustomCard;
-      const updatedCards: { [p: number]: Card } = state.cards;
-      updatedCards[newCard.id] = newCard;
       return {
         ...state,
-        ids: [...state.ids, newCard.id],
-        cards: updatedCards
+        ids: [...state.ids, (newCard as CustomCard).id],
+        cards: {...state.cards, newCard},
       };
     }
 

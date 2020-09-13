@@ -11,6 +11,8 @@ import {Observable, of} from 'rxjs';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../../../redux/reducers';
 import * as cardAction from '../../../redux/actions/cards.action';
+import {Router} from '@angular/router';
+import {ADMIN_PAGE, HOME_PAGE} from '../../../constants/common';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +30,8 @@ export class HeaderComponent implements OnInit {
     public authUserService: AuthUserService,
     private data: DataService,
     public userHolderService: UserHolderService,
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private router: Router
   ) {
     of(this.userHolderService)
       .subscribe((service) => {
@@ -71,4 +74,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  public navigateToAdmin(): void {
+    if (this.userHolderService.isAdmin()) {
+      this.router.navigate([`/${ADMIN_PAGE}`]);
+    }
+  }
 }

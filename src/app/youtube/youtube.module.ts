@@ -7,9 +7,9 @@ import {SearchResultsComponent} from './components/search-results/search-results
 import {SearchItemCardComponent} from './components/search-item-card/search-item-card.component';
 import {SearchItemComponent} from './components/search-item/search-item.component';
 import {SharedModule} from '../shared/shared.module';
-import {HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import {AdminComponent} from './pages/admin/admin.component';
 
 @NgModule({
             imports: [
@@ -24,7 +24,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FilterComponent,
     SearchResultsComponent,
     SearchItemCardComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    AdminComponent
   ],
   exports: [
     MainPageComponent,
@@ -32,7 +33,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FilterComponent,
     SearchResultsComponent,
     SearchItemCardComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    AdminComponent
   ]
 })
 export class YoutubeModule {
