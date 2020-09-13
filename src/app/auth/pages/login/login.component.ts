@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthUserService} from '../../../../core/services/auth-user.service';
-import {UserHolderService} from '../../../../core/services/user-holder.service';
+import {AuthUserService} from '../../../core/services/auth-user.service';
+import {UserHolderService} from '../../../core/services/user-holder.service';
 import {
   EMAIL_PATTERN,
   HOME_PAGE,
   LOGOUT_PAGE,
   MIN_LOGIN_LENGTH,
   MIN_PASSWORD_LENGTH
-} from '../../../../constants/common';
-import {User} from '../../../../shared/models/user.model';
+} from '../../../constants/common';
+import {User} from '../../../shared/models/user.model';
 import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
