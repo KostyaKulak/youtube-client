@@ -25,7 +25,8 @@ mat-spinner {
   border-radius: 8px;
 }
 
-mat-form-field, mat-checkbox {
+mat-form-field,
+mat-checkbox {
   width: 80%;
   display: block;
   margin: auto;

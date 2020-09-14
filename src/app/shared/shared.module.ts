@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {RouterModule} from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [],
@@ -16,7 +16,7 @@ import {RouterModule} from '@angular/router';
     RouterModule,
     FormsModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -26,7 +26,7 @@ import {RouterModule} from '@angular/router';
     FormsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatInputModule
-  ]
+    MatInputModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

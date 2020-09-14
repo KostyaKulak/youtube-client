@@ -1,6 +1,6 @@
-import {Card, CustomCard} from '../../shared/models/card.model';
-import {SearchItem} from '../../youtube/models/search-item.model';
-import {ActionTypes, CardAction} from '../actions/cards.action';
+import { Card, CustomCard } from '../../shared/models/card.model';
+import { SearchItem } from '../../youtube/models/search-item.model';
+import { ActionTypes, CardAction } from '../actions/cards.action';
 
 export interface State {
   query: string;
@@ -13,7 +13,7 @@ export const initialState: State = {
   ids: [],
   query: '',
   cards: [],
-  selected: null
+  selected: null,
 };
 
 /* tslint:disable*/
@@ -23,8 +23,8 @@ export function reducer(state: State = initialState, action: CardAction) {
       const newCard: CustomCard = action.payload as CustomCard;
       return {
         ...state,
-        ids: [...state.ids, (newCard as CustomCard).id],
-        cards: {...state.cards, newCard},
+        ids: [...state.ids, newCard.id],
+        cards: { ...state.cards, newCard },
       };
     }
 
@@ -32,7 +32,7 @@ export function reducer(state: State = initialState, action: CardAction) {
       const id: number = action.payload as number;
       return {
         ...state,
-        selected: id
+        selected: id,
       };
     }
 
@@ -40,14 +40,14 @@ export function reducer(state: State = initialState, action: CardAction) {
       const query: string = action.payload as string;
       return {
         ...state,
-        query: query
+        query: query,
       };
     }
 
     case ActionTypes.VIEW_CARDS: {
       return {
         ...state,
-        selected: null
+        selected: null,
       };
     }
 
@@ -58,6 +58,8 @@ export function reducer(state: State = initialState, action: CardAction) {
 
 export const getIds: (state: State) => number[] = (state: State) => state.ids;
 export const getQuery: (state: State) => string = (state: State) => state.query;
-export const getCards: (state: State) => { [key: number]: Card }
-  = (state: State) => state.cards;
-export const getSelected: (state: State) => number | string = (state: State) => state.selected;
+export const getCards: (state: State) => { [key: number]: Card } = (
+  state: State
+) => state.cards;
+export const getSelected: (state: State) => number | string = (state: State) =>
+  state.selected;

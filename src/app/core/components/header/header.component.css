@@ -1,7 +1,6 @@
 #logo #search_input {
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 5px;
 }
 
 #logo {
@@ -23,11 +22,11 @@ header > div {
 
 #search_input {
   border: hidden;
-  min-width: 500px;
+  min-width: 400px;
 }
 
 .settings {
-  margin-left: 20px;
+  margin-left: 5%;
   width: 25px;
   height: 25px;
 }

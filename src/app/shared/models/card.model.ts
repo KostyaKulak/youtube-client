@@ -1,4 +1,4 @@
-import {SearchItem} from '../../youtube/models/search-item.model';
+import { SearchItem } from '../../youtube/models/search-item.model';
 
 export class CustomCard {
   public id: number;
