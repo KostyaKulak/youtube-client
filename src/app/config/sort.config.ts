@@ -4,11 +4,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SortConfig {
-  private sortTypeSource: BehaviorSubject<SortType> = new BehaviorSubject<SortType>(SortType.DEFAULT);
-  public currentSortType: Observable<SortType> = this.sortTypeSource.asObservable();
+  private sortTypeSource: BehaviorSubject<SortType> = new BehaviorSubject<
+    SortType
+  >(SortType.DEFAULT);
+  public currentSortType: Observable<
+    SortType
+  > = this.sortTypeSource.asObservable();
 
-  constructor() {
-  }
+  constructor() {}
 
   public changeSortType(sortType: SortType): void {
     this.sortTypeSource.next(sortType);

@@ -5,11 +5,13 @@ import { AuthUserService } from '../../core/services/auth-user.service';
 import { LOGIN_PAGE } from '../../constants/common';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UnauthGuard implements CanActivate, CanLoad {
-  constructor(private authUserService: AuthUserService, private router: Router) {
-  }
+export class AuthGuard implements CanActivate {
+  constructor(
+    private authUserService: AuthUserService,
+    private router: Router
+  ) {}
 
   private alreadyLogin(): boolean {
     const isAuthorized: boolean = this.authUserService.isAuthorized;
@@ -20,14 +22,6 @@ export class UnauthGuard implements CanActivate, CanLoad {
   }
 
   public canActivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return this.alreadyLogin();
-  }
-
-  public canLoad():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
