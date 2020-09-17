@@ -5,7 +5,7 @@
   <div>
     <form [formGroup]="filterForm" (ngSubmit)="filterResultsByWord()">
       <input type="submit" class="filter" value="by word or sentence">
-      <input id="by_word_or_sentence" type="text" formControlName="word">
+      <input id="by_word_or_sentence" type="text" formControlName="word"  (keyup)="filterResultsByWord()">
     </form>
   </div>
 </div>
