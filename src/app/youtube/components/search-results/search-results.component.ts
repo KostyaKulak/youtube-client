@@ -16,7 +16,6 @@ import { Card } from '../../../shared/models/card.model';
 export class SearchResultsComponent implements OnInit {
   public searchResponse: SearchResponse;
   public cards: Observable<Card[]>;
-  public filtered: boolean = false;
 
   constructor(
     private youtubeService: YoutubeService,
@@ -30,6 +29,10 @@ export class SearchResultsComponent implements OnInit {
       .subscribe((response: SearchResponse) => {
         this.searchResponse = response;
       });
+  }
+
+  private updateSearchResults(): void {
+    this.searchResponse = this.youtubeService.response;
   }
 
   private sortResults(sortType: SortType): void {
@@ -61,7 +64,7 @@ export class SearchResultsComponent implements OnInit {
       return compare;
     });
     if (sortType === SortType.DEFAULT) {
-      this.fetchYouTubeData();
+      this.updateSearchResults();
     }
   }
 
@@ -75,11 +78,12 @@ export class SearchResultsComponent implements OnInit {
         this.searchResponse.items = this.searchResponse.items.filter((value) =>
           value.snippet.title.includes(word)
         );
-        this.filtered = true;
-      }
-      if (this.filtered && word.length === 0) {
-        this.filtered = false;
-        this.fetchYouTubeData();
+      } else {
+        if (this.searchResponse &&
+          this.searchResponse.items.length !== this.youtubeService.response.items.length) {
+          console.log('hello');
+          this.updateSearchResults();
+        }
       }
     });
   }
