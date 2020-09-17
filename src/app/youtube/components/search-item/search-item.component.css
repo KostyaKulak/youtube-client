@@ -33,7 +33,7 @@
   max-width: 50px;
   padding: 5px 35px 5px 35px;
   border-radius: 5px;
-  margin: auto auto 10px;
+  margin: auto auto 0;
 }
 
 .more_button > a {
@@ -50,7 +50,8 @@
 }
 
 .public_date {
-  height: 5px;
-  margin: 0 -15px -15px;
+  margin: 44px -17px -17px -17px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 

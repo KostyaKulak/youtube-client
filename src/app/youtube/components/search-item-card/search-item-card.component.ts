@@ -9,11 +9,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { YoutubeService } from '../../services/youtube.service';
 import { ActivatedRoute } from '@angular/router';
+import {getBorderClass} from '../../../shared/utils/class.utils';
 
 @Component({
   selector: 'app-search-item-card',
   templateUrl: './search-item-card.component.html',
-  styleUrls: ['./search-item-card.component.css'],
+  styleUrls: ['./search-item-card.component.css', '../../styles/border.css'],
 })
 export class SearchItemCardComponent implements OnInit {
   public faEye: IconDefinition = faEye;
@@ -35,5 +36,7 @@ export class SearchItemCardComponent implements OnInit {
     });
   }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.borderClass = getBorderClass(this.item);
+  }
 }

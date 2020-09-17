@@ -16,11 +16,6 @@
   border-top-left-radius: 5px;
 }
 
-.public_date {
-  height: 5px;
-  margin: 0 -15px -15px;
-}
-
 .statistics {
   display: flex;
   flex-direction: row;
@@ -43,7 +38,7 @@ mat-card-content {
 }
 
 .info {
-  margin: 20px;
+  margin: 20px 20px 0;
 }
 
 h2 {
@@ -54,4 +49,8 @@ h2 {
 
 mat-card-content {
   color: grey;
+}
+
+.public_date {
+  margin: 29px -20px -20px -20px;
 }
