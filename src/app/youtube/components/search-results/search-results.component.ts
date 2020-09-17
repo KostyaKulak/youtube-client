@@ -81,7 +81,6 @@ export class SearchResultsComponent implements OnInit {
       } else {
         if (this.searchResponse &&
           this.searchResponse.items.length !== this.youtubeService.response.items.length) {
-          console.log('hello');
           this.updateSearchResults();
         }
       }
