@@ -1,0 +1,53 @@
+.item {
+  text-align: center;
+  border-radius: 5px;
+  padding: 0;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #f1f1f1;
+}
+
+.item > img {
+  max-width: 45%;
+}
+
+.public_date {
+  height: 5px;
+  margin: 0 -15px -15px;
+}
+
+.statistics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-card-content {
+  text-align: left;
+}
+
+.info_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.info_header > div {
+  color: grey;
+}
+
+.info {
+  margin: 20px;
+}
+
+h2 {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+mat-card-content {
+  color: grey;
+}

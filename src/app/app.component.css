@@ -1,0 +1,15 @@
+.public_date_seven_days {
+  background-color: blue;
+}
+
+.public_date_month {
+  background-color: green;
+}
+
+.public_date_six_month {
+  background-color: red;
+}
+
+.public_date_default {
+  background-color: #28a9ff;
+}
