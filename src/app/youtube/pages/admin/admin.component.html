@@ -1,0 +1,46 @@
+<div class="admin-component">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title>Create new card</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="newCardForm" (ngSubmit)="createNewCard()">
+        <mat-form-field class="input-field">
+          <mat-label>title</mat-label>
+          <input class="input" matInput type="text" formControlName="title">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-field">
+          <mat-label>description</mat-label>
+          <input class="input" matInput type="text" formControlName="description">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-field">
+          <mat-label>link to the image</mat-label>
+          <input class="input" matInput type="text" formControlName="imgLink">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-field">
+          <mat-label>link to video</mat-label>
+          <input class="input" matInput type="text" formControlName="videoLink">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="input-field">
+          <mat-label>creation date (current date)</mat-label>
+          <input class="input" matInput type="text" formControlName="creationDate">
+        </mat-form-field>
+
+        <br>
+
+        <button type="submit" class="submit" [disabled]="newCardForm.invalid">Create</button>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

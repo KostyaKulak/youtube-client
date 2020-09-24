@@ -6,12 +6,12 @@ import { USER_HOLDER } from '../../constants/common';
 
 const FAKE_FETCH_TIME: number = 1000;
 const FAKE_TOKEN: string = 'token';
-const FAKE_EXCEPTION: Error = new Error('User\'s error');
+const FAKE_EXCEPTION: Error = new Error("User's error");
 
 @Injectable({ providedIn: 'root' })
 export class UserHolderService {
   public verifyUser(user: User): Observable<string> {
-    return (user?.name && (user?.password || user?.token))
+    return user?.name && (user?.password || user?.token)
       ? timer(FAKE_FETCH_TIME).pipe(mapTo(FAKE_TOKEN))
       : throwError(FAKE_EXCEPTION);
   }
@@ -25,13 +25,16 @@ export class UserHolderService {
     if (savedUser) {
       try {
         return JSON.parse(savedUser);
-      } catch {
-      }
+      } catch {}
     }
     return null;
   }
 
   public clearLastUser(): void {
     localStorage.removeItem(USER_HOLDER);
+  }
+
+  public isAdmin(): boolean {
+    return this.loadLastUser().name === 'admin';
   }
 }

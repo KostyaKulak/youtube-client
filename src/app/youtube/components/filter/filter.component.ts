@@ -7,17 +7,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
   public hidden: boolean;
   public filterForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private data: DataService, private sortConfig: SortConfig) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private data: DataService,
+    private sortConfig: SortConfig
+  ) {}
 
   public ngOnInit(): void {
-    this.data.currentFilterHiddenState.subscribe(hidden => this.hidden = hidden);
+    this.data.currentFilterHiddenState.subscribe(
+      (hidden) => (this.hidden = hidden)
+    );
     this.createForm();
   }
 
@@ -34,7 +39,9 @@ export class FilterComponent implements OnInit {
 
   public sortResultsByDate(): void {
     let currentSortType: SortType;
-    this.sortConfig.currentSortType.subscribe(sortType => currentSortType = sortType);
+    this.sortConfig.currentSortType.subscribe(
+      (sortType) => (currentSortType = sortType)
+    );
     switch (currentSortType) {
       case SortType.DATE_ASC:
         this.sortResults(SortType.DATE_DEC);
@@ -50,7 +57,9 @@ export class FilterComponent implements OnInit {
 
   public sortResultsByCountOfViews(): void {
     let currentSortType: SortType;
-    this.sortConfig.currentSortType.subscribe(sortType => currentSortType = sortType);
+    this.sortConfig.currentSortType.subscribe(
+      (sortType) => (currentSortType = sortType)
+    );
     switch (currentSortType) {
       case SortType.COUNT_OF_VIEWS_ASC:
         this.sortResults(SortType.COUNT_OF_VIEWS_DEC);

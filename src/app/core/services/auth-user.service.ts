@@ -1,20 +1,23 @@
-import {User} from '../../shared/models/user.model';
-import {Observable, of, Subject} from 'rxjs';
-import {Injectable} from '@angular/core';
-import {UserHolderService} from './user-holder.service';
-import {map, tap} from 'rxjs/operators';
-import {Router} from '@angular/router';
-import {LOGIN_PAGE} from '../../constants/common';
+import { User } from '../../shared/models/user.model';
+import { Observable, of, Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { UserHolderService } from './user-holder.service';
+import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { LOGIN_PAGE } from '../../constants/common';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthUserService {
   private user: Subject<User>;
 
   public isAuthorized: boolean = false;
 
-  constructor(private router: Router, private userHolderService: UserHolderService) {
+  constructor(
+    private router: Router,
+    private userHolderService: UserHolderService
+  ) {
     this.user = new Subject<User>();
-    this.user.asObservable().subscribe((user) => this.isAuthorized = !!user);
+    this.user.asObservable().subscribe((user) => (this.isAuthorized = !!user));
   }
 
   private clear(): void {
@@ -24,7 +27,7 @@ export class AuthUserService {
 
   public login(user: User): Observable<boolean> {
     return this.userHolderService.verifyUser(user).pipe(
-      tap(token => {
+      tap((token) => {
         if (token) {
           user.token = token;
           user.password = '';
@@ -34,7 +37,7 @@ export class AuthUserService {
           this.clear();
         }
       }),
-      map(token => !!token)
+      map((token) => !!token)
     );
   }
 

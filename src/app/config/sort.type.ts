@@ -3,5 +3,5 @@ export enum SortType {
   DATE_DEC,
   COUNT_OF_VIEWS_ASC,
   COUNT_OF_VIEWS_DEC,
-  DEFAULT
+  DEFAULT,
 }

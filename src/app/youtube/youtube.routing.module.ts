@@ -5,12 +5,11 @@ import { DetailedInfoComponent } from './pages/detailed-info/detailed-info.compo
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
-  { path: ':id', component: DetailedInfoComponent }
+  { path: ':id', component: DetailedInfoComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class YoutubeRoutingModule {
-}
+export class YoutubeRoutingModule {}

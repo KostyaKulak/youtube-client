@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-detailed-info',
   templateUrl: './detailed-info.component.html',
-  styleUrls: ['./detailed-info.component.css']
+  styleUrls: ['./detailed-info.component.css'],
 })
 export class DetailedInfoComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  public ngOnInit(): void {
-  }
-
+  public ngOnInit(): void {}
 }
