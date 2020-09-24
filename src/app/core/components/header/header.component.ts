@@ -4,8 +4,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import {AuthUserService} from '../../services/auth-user.service';
 import {UserHolderService} from '../../services/user-holder.service';
-import {of} from 'rxjs';
 import {User} from '../../../shared/models/user.model';
+import {YoutubeService} from '../../../youtube/services/youtube.service';
+import {SearchResponse} from '../../../youtube/models/search-response.model';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private youtubeService: YoutubeService,
     public authUserService: AuthUserService,
     private data: DataService,
     public userHolderService: UserHolderService
@@ -43,7 +46,18 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  public onSubmit(): void {
+  public search(query: string): void {
+    if (query.length > 3) {
+      const result: Observable<SearchResponse> | void = this.youtubeService.searchYouTubeData(query);
+      if (result instanceof Observable) {
+        result.subscribe((response: SearchResponse) => {
+          this.youtubeService.fetchVideos(response).subscribe((responseWithStats: SearchResponse) => {
+            this.youtubeService.response = responseWithStats;
+            this.youtubeService.currentData.next(responseWithStats);
+          });
+        });
+      }
+    }
   }
 
   public showFilter(): void {

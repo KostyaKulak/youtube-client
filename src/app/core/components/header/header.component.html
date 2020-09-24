@@ -2,12 +2,11 @@
   <a href="/list">
     <img id="logo" src="assets/img/logo.png" alt="logo">
   </a>
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="searchForm" (ngSubmit)="search(searchField.value)">
     <mat-form-field class="input-field" id="search_input">
-      <input class="input" matInput type="text" placeholder="What are you want to find out?"
-             formControlName="search">
+      <input  #searchField  class="input" matInput type="text" placeholder="What are you want to find out?"
+             formControlName="search" (keyup)="search(searchField.value)">
     </mat-form-field>
-    <button type="submit" class="submit search" [disabled]="searchForm.invalid">search</button>
   </form>
   <button type="button" class="settings" (click)="showFilter()">
     <fa-icon [icon]="faSlidersH"></fa-icon>

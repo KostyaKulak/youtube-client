@@ -4,7 +4,7 @@ import {DataService} from '../../../core/services/data.service';
 import {SortType} from '../../../config/sort.type';
 import {SortConfig} from '../../../config/sort.config';
 import {SearchItem} from '../../models/search-item.model';
-import {HttpService} from '../../services/http.service';
+import {YoutubeService} from '../../services/youtube.service';
 
 @Component({
   selector: 'app-search-results',
@@ -15,12 +15,16 @@ export class SearchResultsComponent implements OnInit {
   public searchResponse: SearchResponse;
   public filtered: boolean = false;
 
-  constructor(private http: HttpService, private data: DataService, private sortConfig: SortConfig) {
-  }
+  constructor(
+    private youtubeService: YoutubeService,
+    private data: DataService,
+    private sortConfig: SortConfig
+  ) {  }
 
   private fetchYouTubeData(): void {
-    this.http.fetchYouTubeData()
-      .subscribe((searchResponse: SearchResponse) => this.searchResponse = searchResponse);
+    this.youtubeService.currentData.asObservable().subscribe((response: SearchResponse) => {
+      this.searchResponse = response;
+    });
   }
 
   private sortResults(sortType: SortType): void {

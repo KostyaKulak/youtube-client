@@ -2,7 +2,7 @@
 
 <ng-template #itemView>
   <div class="item" *ngIf="!loading">
-    <img [src]="item.snippet.thumbnails.maxres.url" alt="{{item.snippet.title}}">
+    <img [src]="item.snippet.thumbnails.high.url" alt="{{item.snippet.title}}">
     <div class="info">
       <div class="info_header">
         <mat-card-title class="title"> {{item.snippet.title}}</mat-card-title>

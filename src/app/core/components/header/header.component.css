@@ -1,16 +1,4 @@
-.search {
-  background-color: #28a9ff;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  min-width: 50px;
-  padding: 3px !important;
-  color: white;
-  text-align: center;
-  box-shadow: #28a9ff;
-  border: hidden;
-}
-
-#logo, .search, #search_input {
+#logo #search_input {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 5px;
