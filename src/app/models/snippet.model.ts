@@ -2,7 +2,7 @@ import { Thumbnails } from './thumbnails.model';
 import { Localized } from './localized.model';
 
 export interface Snippet {
-  publishedAt: Date;
+  publishedAt: string;
   channelId: string;
   title: string;
   description: string;
