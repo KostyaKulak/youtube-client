@@ -1,0 +1,6 @@
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto;
+}
