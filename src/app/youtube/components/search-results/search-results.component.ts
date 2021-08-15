@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchResponse} from '../../models/search-response.model';
-import {DataService} from '../../services/data.service';
-import {SortType} from '../../config/sort.type';
-import {SortConfig} from '../../config/sort.config';
+import {InMemoryDataService} from '../../../components/search-results/in-memory-data-service.service';
+import {DataService} from '../../../core/services/data.service';
+import {SortConfig} from '../../../config/sort.config';
 import {SearchItem} from '../../models/search-item.model';
-import {InMemoryDataService} from './in-memory-data-service.service';
+import {SortType} from '../../../config/sort.type';
 
 @Component({
   selector: 'app-search-results',
@@ -13,7 +13,6 @@ import {InMemoryDataService} from './in-memory-data-service.service';
 })
 export class SearchResultsComponent implements OnInit {
   public searchResponse: SearchResponse;
-  public hidden: boolean;
   public filtered: boolean = false;
 
   constructor(private data: DataService, private sortConfig: SortConfig) {
@@ -54,7 +53,6 @@ export class SearchResultsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.fetchYouTubeData();
-    this.data.currentResultsHiddenState.subscribe(hidden => this.hidden = hidden);
     this.sortConfig.currentSortType.subscribe(sortType => this.sortResults(sortType));
     this.data.currentFilterWord.subscribe(word => {
       if (word.length !== 0) {

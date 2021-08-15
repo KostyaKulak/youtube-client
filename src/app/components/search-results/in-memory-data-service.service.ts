@@ -1,4 +1,4 @@
-import {SearchResponse} from '../../models/search-response.model';
+import {SearchResponse} from '../../youtube/models/search-response.model';
 
 export class InMemoryDataService {
 
