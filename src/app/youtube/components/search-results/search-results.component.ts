@@ -19,7 +19,8 @@ export class SearchResultsComponent implements OnInit {
     private youtubeService: YoutubeService,
     private data: DataService,
     private sortConfig: SortConfig
-  ) {  }
+  ) {
+  }
 
   private fetchYouTubeData(): void {
     this.youtubeService.currentData.asObservable().subscribe((response: SearchResponse) => {
